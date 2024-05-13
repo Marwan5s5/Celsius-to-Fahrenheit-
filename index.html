@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chatGPT</title>
+    
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <div class="converter-container">
+        <h2>Temperature Converter</h2>
+        <div class="form-group">
+          <label for="celsius-input">Celsius</label>
+          <input type="number" id="celsius-input" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="fahrenheit-input">Fahrenheit</label>
+          <input type="number" id="fahrenheit-input" class="form-control">
+        </div>
+        <button type="button" id="convert-btn">Convert</button>
+      </div>
+
+      <script>
+        const celsiusInput = document.getElementById("celsius-input");
+const fahrenheitInput = document.getElementById("fahrenheit-input");
+const convertBtn = document.getElementById("convert-btn");
+
+// Celsius to Fahrenheit conversion
+function celsiusToFahrenheit(celsius) {
+  return (celsius * 9 / 5) + 32;
+}
+
+// Fahrenheit to Celsius conversion
+function fahrenheitToCelsius(fahrenheit) {
+  return (fahrenheit - 32) * 5 / 9;
+}
+
+// Event listener for convert button
+convertBtn.addEventListener("click", function() {
+  const celsius = parseFloat(celsiusInput.value);
+  const fahrenheit = parseFloat(fahrenheitInput.value);
+
+  // Celsius to Fahrenheit conversion
+  if (!isNaN(celsius)) {
+    const result = celsiusToFahrenheit(celsius);
+    fahrenheitInput.value = result.toFixed(2);
+  }
+
+  // Fahrenheit to Celsius conversion
+  if (!isNaN(fahrenheit)) {
+    const result = fahrenheitToCelsius(fahrenheit);
+    celsiusInput.value = result.toFixed(2);
+  }
+});
+
+      </script>
+      
+</body>
+</html>
